@@ -1,7 +1,7 @@
 # 🧶 CrochetHub — Full-Stack Crochet App
 
 Your complete crochet world: stitch counter, project tracker, yarn stash, social feed,
-marketplace, gamification, journal, portfolio, commissions, and admin dashboard.
+marketplace, gamification, journal, portfolio, commissions, and dashboard.
 
 ---
 
@@ -18,59 +18,6 @@ marketplace, gamification, journal, portfolio, commissions, and admin dashboard.
 
 ---
 
-## Quick Start
-
-### 1. Clone & install
-```bash
-git clone <your-repo>
-cd crochethub
-npm install
-cd frontend && npm install
-cd ../backend && npm install
-```
-
-### 2. Set up Supabase
-1. Go to [supabase.com](https://supabase.com) → New project
-2. In the SQL Editor, paste and run **`supabase_schema.sql`** (in the project root)
-3. Copy your **Project URL** and **anon key** from Settings → API
-
-### 3. Configure environment variables
-
-**Frontend** (`frontend/.env`):
-```env
-VITE_SUPABASE_URL=https://your-project.supabase.co
-VITE_SUPABASE_ANON_KEY=your-anon-key
-VITE_API_URL=http://localhost:3001
-```
-
-**Backend** (`backend/.env`):
-```env
-PORT=3001
-NODE_ENV=development
-SUPABASE_URL=https://your-project.supabase.co
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-FRONTEND_URL=http://localhost:5173
-```
-
-> ⚠️ The service role key has full DB access — never expose it to the frontend.
-
-### 4. Run the app
-
-```bash
-# From project root — runs both frontend and backend
-npm run dev
-```
-
-Or separately:
-```bash
-# Frontend (http://localhost:5173)
-cd frontend && npm run dev
-
-# Backend (http://localhost:3001)
-cd backend && npm run dev
-```
-
----
 
 ## Features
 
@@ -92,18 +39,6 @@ cd backend && npm run dev
 | 💼 Portfolio        | Public page with QR business card                       |
 | 🧾 Orders           | Commission management with revenue tracking             |
 | 🛡️ Admin           | Full user management, platform stats, content moderation |
-
----
-
-## Making yourself an admin
-
-After signing up, run this in the Supabase SQL Editor:
-
-```sql
-UPDATE public.profiles
-SET is_admin = true
-WHERE username = 'your-username';
-```
 
 ---
 
@@ -135,23 +70,6 @@ crochethub/
             ├── admin.ts       ← /api/admin/*
             ├── xp.ts          ← /api/xp/*
             └── profiles.ts    ← /api/profiles/*
-```
-
----
-
-## Deployment
-
-### Frontend → Vercel / Netlify
-```bash
-cd frontend && npm run build
-# Upload dist/ or connect repo
-```
-
-### Backend → Railway / Render / Fly.io
-```bash
-cd backend && npm run build
-# Set env vars in your hosting dashboard
-# Start command: node dist/index.js
 ```
 
 ---
